@@ -10,6 +10,7 @@ echo "Setting up the specified SDK (${sdk_name})..."
 tar -xf ./${sdk_name}.tar.bz2
 rm ./${sdk_name}.tar.bz2
 mv ./${sdk_name} ../renpy
+cd ..
 cd renpy
 rm -r launcher
 rm -r templates
