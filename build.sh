@@ -10,10 +10,10 @@ echo "Setting up the specified SDK (${sdk_name})..."
 tar -xf ./${sdk_name}.tar.bz2
 rm ./${sdk_name}.tar.bz2
 mv ./${sdk_name} ../sdk
-rm -r sdk/renpy
+rm sdk/renpy/common/00build.rpy
 rm -r sdk/launcher
 cp -vRf launcher sdk/launcher
-cp -vRf renpy sdk/renpy
+cp -vRf renpy/common/00build.rpy sdk/renpy/common/00build.rpy
 
 echo "Building the project at $2..."
 if ../sdk/renpy.sh ../sdk/launcher distribute $2; then
