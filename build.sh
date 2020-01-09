@@ -10,6 +10,11 @@ echo "Setting up the specified SDK (${sdk_name})..."
 tar -xf ./${sdk_name}.tar.bz2
 rm ./${sdk_name}.tar.bz2
 mv ./${sdk_name} ../renpy
+cd renpy
+rm -r launcher
+rm -r templates
+cp DDLC-ModMaker/launcher renpy/launcher
+cp DDLC-ModMaker/templates renpy/templates
 
 echo "Building the project at $2..."
 if ../renpy/renpy.sh ../renpy/launcher distribute $2; then
