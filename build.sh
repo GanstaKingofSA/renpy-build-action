@@ -9,17 +9,14 @@ echo "Downloaded SDK version (${sdk_name})."
 echo "Setting up the specified SDK (${sdk_name})..."
 tar -xf ./${sdk_name}.tar.bz2
 rm ./${sdk_name}.tar.bz2
-mv ./${sdk_name} ../renpy
-ls -l
-mkdir ddmm
-cp -vRf /* ddmm
-rm ddmm/renpy.sh
-rm -r ddmm/lib
-mv ./renpy/renpy.sh ddmm/renpy.sh
-mv ./renpy/lib ddmm/lib
-cd ./ddmm
+mv ./${sdk_name} ../sdk
+rm sdk/renpy
+rm sdk/launcher
+cp launcher sdk/launcher
+cp renpy sdk/renpy
+
 echo "Building the project at $2..."
-if ../renpy.sh ../renpy/launcher distribute; then
+if ../sdk/renpy.sh ../sdk/launcher distribute $2; then
     built_dir=$(ls | grep '\-dists')
     echo ::set-output name=dir::$built_dir
     echo ::set-output name=version::${built_dir%'-dists'}
