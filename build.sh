@@ -10,14 +10,14 @@ echo "Setting up the specified SDK (${sdk_name})..."
 tar -xf ./${sdk_name}.tar.bz2
 rm ./${sdk_name}.tar.bz2
 mv ./${sdk_name} ../renpy
-cd ..
+ls -l
 mkdir ddmm
-cp -vRf DDLC-ModMaker/* ddmm
+cp -vRf /* ddmm
 rm ddmm/renpy.sh
 rm -r ddmm/lib
-mv renpy/renpy.sh ddmm/renpy.sh
-mv renpy/lib ddmm/lib
-cd ddmm
+mv ./renpy/renpy.sh ddmm/renpy.sh
+mv ./renpy/lib ddmm/lib
+cd ./ddmm
 echo "Building the project at $2..."
 if ../renpy.sh ../renpy/launcher distribute; then
     built_dir=$(ls | grep '\-dists')
